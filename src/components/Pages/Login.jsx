@@ -11,8 +11,9 @@ const Login = () => {
   console.log(login);
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log("tıkladım");
-    setLogin(login ? false : true)
+    setTimeout(()=>{
+      setLogin(login ? false : true)
+    },1000)
     console.log(login);
   }
 
