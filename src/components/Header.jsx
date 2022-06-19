@@ -1,8 +1,11 @@
 import React from 'react'
 import { StyledHeader, Nav, Menu } from './styles/Header.styled'
 import { BrowserRouter as Router, Routes, Route, Outlet, Link } from "react-router-dom";
+import { useLogin } from './context/LoginContext';
 
 const Header = () => {
+
+  const {login, setLogin} = useLogin();
   return (
     <StyledHeader>
         <Nav>
@@ -20,7 +23,7 @@ const Header = () => {
                   <Link to="/contact">Contact</Link>
                 </li>
                 <li>
-                  <Link to="/logout">Logout</Link>
+                  <Link to="/login">{login ? "Logout" : "Login"}</Link>
                 </li>
             </Menu>
         </Nav>
