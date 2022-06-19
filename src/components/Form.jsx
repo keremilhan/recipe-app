@@ -5,14 +5,31 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 
-
-const APP_ID = "8582304d";
-const APP_KEY = "9e7ed331a666c12633ac635c4eb19b07";
-
-const Form = () => {
+const Form = ({ setQuery, query, getData, mealTypes, setMeal, meal }) => {
+  console.log(query);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("submit");
+    console.log(query);
+    getData();
+  }
   return (
     <>
-        <Formik 
+
+      <form action="" onSubmit={handleSubmit}>
+        <Input type="search" placeholder='Search' value={query} onChange={(e) => setQuery(e.target.value)} />
+        <Button type='submit' text="Search"/>
+        <select id="mealTypes" name="mealTypes" onChange={(e) => setMeal(e.target.value)}>
+          {
+            mealTypes?.map((item,index) =>{
+              return <option key={index} value={item.toLowerCase()}>
+                {item}
+              </option>
+            })
+          }
+        </select>
+      </form>
+        {/* <Formik 
         initialValues={{
           searchInput: "",
           mealType: "Breakfast",
@@ -25,14 +42,14 @@ const Form = () => {
         }
         onSubmit= {(values, {resetForm}) => {
           console.log(values.searchInput, values.mealType);
-          const getData = async (search) => {
+          const handleSubmit = async (search) => {
             const url = `https://api.edamam.com/search?q=${search}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${values.mealType}`;
             const result = await axios.get(url);
             const data = result.data.hits
             console.log(data);
           };
           resetForm()
-          getData(values.searchInput)
+          handleSubmit(values.searchInput)
         }}
         >
         {
@@ -62,7 +79,7 @@ const Form = () => {
 
 
           )}
-        </Formik>
+        </Formik> */}
 
     </>
   )

@@ -5,6 +5,7 @@ import Home from './Pages/Home';
 import About from './Pages/About';
 import Login from './Pages/Login';
 import Contact from './Pages/Contact';
+import Details from './Pages/Details';
 import { LoginProvider } from './context/LoginContext';
 import { useLogin } from './context/LoginContext';
 
@@ -20,6 +21,7 @@ const AppRouter = () => {
                 <Route index element={<Home />} />
                 <Route path="about" element={<About />} />
                 <Route path="contact" element={<Contact />} />
+                <Route path="details" element={<Details />} />
                 <Route path="login" element={<Login />} />
             </Route>
         </Routes>      
