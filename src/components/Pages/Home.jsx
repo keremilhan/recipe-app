@@ -6,13 +6,14 @@ const Home = () => {
     <StyledHome>
         <h1>Food Recipes</h1>
         <form action="">
-            <input type="text" />
+            <input type="text" placeholder='Search'/>
             <button type='submit'>Search</button>
             <select id="cars" name="cars">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="fiat">Fiat</option>
-                <option value="audi">Audi</option>
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+                <option value="snack">Snack</option>
+                <option value="teatime">Teatime</option>
             </select>
         </form>
     </StyledHome>

@@ -14,7 +14,7 @@ const Header = () => {
                   <Link to="/about">About</Link>
                 </li>
                 <li>
-                  <Link to="/github">Github</Link>
+                  <a href="https://github.com/keremilhan" target="_blank">Github</a>
                 </li>
                 <li>
                   <Link to="/contact">Contact</Link>

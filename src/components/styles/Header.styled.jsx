@@ -1,18 +1,24 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
-    background-color: #ebfebf;  
+    background-color: #8BACAB;  
 `
 
 export const Nav = styled.nav`
     padding: 0 3rem;
+    min-height: 10vh;
     display: flex;
     justify-content: space-between;
-    border: 1px solid black;
     align-items: center;
+
+    h1 *{
+        color: #fff;
+    }
 `
 export const Menu = styled.ul`
     list-style-type: none;
     display: flex;
     gap: 4rem;
+    font-size: 1.4rem;
+    font-weight: bold;
 `
