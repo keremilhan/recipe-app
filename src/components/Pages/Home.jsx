@@ -3,6 +3,7 @@ import Form from '../Form'
 import { useState } from 'react'
 import axios from 'axios'
 import Card from '../Card'
+import { CardContainer } from '../styles/Home.styled'
 
 const APP_ID = "8582304d";
 const APP_KEY = "9e7ed331a666c12633ac635c4eb19b07";
@@ -41,11 +42,11 @@ const Home = () => {
         setMeal={setMeal}
         meal={meal}/>
       {recipes && (
-        <>
+        <CardContainer>
           {recipes.map((recipe, index) => (
             <Card key={index} recipe={recipe} />
           ))}          
-        </>
+        </CardContainer>
       )}        
     </StyledHome>
   )

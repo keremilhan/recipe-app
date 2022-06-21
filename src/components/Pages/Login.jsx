@@ -4,25 +4,35 @@ import { StyledLogout } from '../styles/Logout.styled'
 import Input from '../Input'
 import Button from '../Button'
 import { useLogin } from '../context/LoginContext'
-import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
   const {login, setLogin} = useLogin()
-  console.log(login);
+  let navigate = useNavigate();
   const handleLogin = (e) => {
     e.preventDefault();
-    setTimeout(()=>{
-      setLogin(login ? false : true)
-    },1000)
-    console.log(login);
+    if(username !== "" & password !== ""){
+      setTimeout(()=>{
+        setLogin(true)
+        navigate("/", { state: { login } });
+      },1000)
+    }else if(login == true){
+      setTimeout(() => {
+        setLogin(false)
+      }, 1000);
+    }else{
+      alert("Please don't leave the input fields empty")
+    }
   }
 
   return (
     <>
     { !login ?
       <StyledForm>
-        <Input placeholder="Username" />
-        <Input placeholder="Password" />
+        <Input type="text" placeholder="Username" value={username} onChange={(e)=> setUsername(e.target.value)}/>
+        <Input type="password" placeholder="Password" value={password} onChange={(e)=> setPassword(e.target.value)}/>
         <Button type="submit" text={login ? "Logout" : "Login"} onClick={handleLogin}/>
       </StyledForm>
       :
