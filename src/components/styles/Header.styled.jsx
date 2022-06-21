@@ -26,6 +26,12 @@ export const Menu = styled.ul`
     gap: 4rem;
     font-size: 1.4rem;
     font-weight: bold;
+
+    li {
+        width: 90px;
+        text-align: center;
+    }
+
     @media only screen and (max-width: 1000px) {
         gap: 2rem;
     }
