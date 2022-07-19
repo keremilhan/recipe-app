@@ -1,8 +1,21 @@
 import styled from "styled-components";
 
+
+export const Flex = styled.div`
+    display: flex;
+    justify-content: space-between;
+
+
+    @media only screen and (max-width: 1000px) {
+        flex-direction: column;
+
+    }
+
+`
+
 export const StyledHeader = styled.header`
     background-color: #8BACAB;
-    width: 100vw;  
+    width: 100vw;
 `
 
 export const Nav = styled.nav`
@@ -15,10 +28,6 @@ export const Nav = styled.nav`
     h1 *{
         color: #fff;
     }
-
-    @media only screen and (max-width: 1000px) {
-        flex-direction: column;
-    }
 `
 export const Menu = styled.ul`
     list-style-type: none;
@@ -26,6 +35,8 @@ export const Menu = styled.ul`
     gap: 4rem;
     font-size: 1.4rem;
     font-weight: bold;
+    overflow: hidden;
+    align-items: center;
 
     li {
         width: 90px;
@@ -34,5 +45,16 @@ export const Menu = styled.ul`
 
     @media only screen and (max-width: 1000px) {
         gap: 2rem;
+        display: ${({isOpen}) => !isOpen && "none"};
+        flex-direction: column;
+    }
+`
+
+export const Hamburger = styled.div`
+    display: none;
+    cursor: pointer;
+    color: white;
+    @media (max-width: 1000px){
+        display: block;
     }
 `
